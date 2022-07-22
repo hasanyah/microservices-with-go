@@ -1,0 +1,28 @@
+syntax = "proto3";
+option go_package = "microservices-with-go/api/album";
+
+service album {
+    rpc Find (FindAlbumRequest) returns (FindAlbumResponse) {}
+    rpc ServiceStatus (AlbumServiceStatusRequest) returns (AlbumServiceStatusResponse) {}
+}
+
+message Album {
+    string title = 1;
+    string artist = 2;
+}
+
+message FindAlbumRequest {
+    string query = 1;
+}
+
+message FindAlbumResponse {
+    repeated Album albums = 1;
+    string err = 2;
+}
+
+message AlbumServiceStatusRequest {}
+
+message AlbumServiceStatusResponse {
+    int64 code = 1;
+    string err = 2;
+}

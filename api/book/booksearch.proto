@@ -1,0 +1,28 @@
+syntax = "proto3";
+option go_package = "microservices-with-go/api/book";
+
+service book {
+    rpc Find (FindBookRequest) returns (FindBookResponse) {}
+    rpc ServiceStatus (BookServiceStatusRequest) returns (BookServiceStatusResponse) {}
+}
+
+message Book {
+    string title = 1;
+    string author = 2;
+}
+
+message FindBookRequest {
+    string query = 1;
+}
+
+message FindBookResponse {
+    repeated Book books = 1;
+    string err = 2;
+}
+
+message BookServiceStatusRequest {}
+
+message BookServiceStatusResponse {
+    int64 code = 1;
+    string err = 2;
+}

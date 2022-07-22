@@ -1,0 +1,2 @@
+resultLimit: 5
+apiEndpoint: "https://itunes.apple.com/search?"
